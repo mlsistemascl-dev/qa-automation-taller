@@ -31,12 +31,12 @@ A continuación, se adjuntan las capturas solicitadas en las actividades:
 
 ### Actividad 1: Repositorio y POM.xml configurado
 *(Inserta aquí la captura de tu repositorio en GitHub mostrando las ramas y el archivo `pom.xml`)*
-![Captura Repositorio](ruta_a_captura/repo.png)
+![Captura Repositorio](evidencias/repo.jpg)
 
 ### Actividad 2: Ejecución de Pipeline CI (Build y Pruebas)
 *(Inserta aquí la captura de pantalla de los Actions de GitHub con los checks en verde para el job "Build and Test")*
-![Captura CI](ruta_a_captura/ci_build_test.png)
+![Captura CI](evidencias/Build%20and%20Test.jpg)
 
 ### Actividad 3: Pipeline de Despliegue y Rollback
 *(Inserta aquí la captura de los logs del job "Deploy to Test Environment" mostrando la simulación del despliegue Blue-Green y las validaciones de aceptación)*
-![Captura CD](ruta_a_captura/cd_deploy.png)
+![Captura CD](evidencias/fix%20update%20github%20action.jpg)
