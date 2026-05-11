@@ -1,0 +1,66 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build_and_test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build and Run Unit Tests
+      run: mvn clean test
+
+    - name: Run Integration Tests
+      run: mvn failsafe:integration-test failsafe:verify
+
+  deploy_test:
+    name: Deploy to Test Environment
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Simulate Deployment to Test (Blue-Green)
+      run: |
+        echo "Starting Blue-Green deployment to TEST environment..."
+        echo "Deploying to GREEN instance..."
+        sleep 2
+        echo "Deployment to GREEN successful."
+        
+    - name: Run Acceptance Tests (Simulated)
+      id: acceptance
+      run: |
+        echo "Running acceptance tests on GREEN instance..."
+        # Simulate some basic validation
+        echo "Validation passed."
+        
+    - name: Switch Traffic to GREEN (Simulated)
+      if: success()
+      run: |
+        echo "Acceptance tests passed. Switching traffic to GREEN instance."
+        echo "Deployment complete."
+        
+    - name: Rollback (Simulated)
+      if: failure()
+      run: |
+        echo "Acceptance tests failed! Initiating rollback..."
+        echo "Switching traffic back to BLUE instance."
+        echo "Rollback complete."
