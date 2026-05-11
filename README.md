@@ -1,5 +1,7 @@
 # Proyecto de Automatización de Pruebas - Taller Evaluativo
 
+> **Nota Aclaratoria:** Para la correcta realización y entrega de este taller, fue necesario crear y utilizar una cuenta nueva de GitHub (`mlsistemascl-dev`). Esto se debió a que la cuenta principal del estudiante presentaba un bloqueo por problemas de facturación (límite de minutos gratuitos excedido) que impedía por completo la ejecución de los pipelines en GitHub Actions, requisito indispensable para evidenciar las actividades 2 y 3 de la evaluación.
+
 ## Descripción del Proyecto y Estrategia de Pruebas
 
 Este repositorio contiene la resolución del taller evaluativo de Automatización de Pruebas, estructurado bajo un enfoque de integración y despliegue continuo (CI/CD). 
